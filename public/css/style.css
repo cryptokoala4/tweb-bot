@@ -47,7 +47,7 @@ body {
   font-size: 5.5vw;*/
   font-size: 3.2vmax;
   font-weight: lighter;
-  color: white;
+  color: #E04A1D;
 }
 
 #logo {
@@ -63,12 +63,12 @@ body {
   font-size: 2.5vw;*/
   font-size: 2vmax;
   font-weight: normal;
-  color: white;
+  color: #E04A1D;
+  padding-bottom: 24px;
 }
 
 .btn-cta.btn-inverted {
-  background-color:none;
-  border:2px solid #fff;
-  color:#fff
+  border: 2px solid #E04A1D;
+  color: #E04A1D;
 }
 
