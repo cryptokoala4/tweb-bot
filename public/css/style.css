@@ -42,7 +42,6 @@ body {
 .main-font {
   font-family: 'Dosis', sans-serif;
   padding-top: 20px;
-  text-shadow: black 0px 1px 6px;
   /*font-size: 50px;
   font-size: 5.5vw;*/
   font-size: 3.2vmax;
@@ -51,24 +50,60 @@ body {
 }
 
 #logo {
-  max-width: 100%;
+  max-width: 200px;
   min-width: 100px;
 }
 
-.main-description {
+.main-description, .main-li {
   font-family: 'Open Sans', sans-serif;
-  padding-top: 20px;
-  text-shadow: black 0px 0px 12px;
-/*  font-size: 25px;
-  font-size: 2.5vw;*/
-  font-size: 2vmax;
+  font-size: 1.8vmax;
   font-weight: normal;
   color: #E04A1D;
-  padding-bottom: 24px;
+  padding-bottom: 0px;
+}
+
+.main-li2 {
+  padding-bottom: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8vmax;
+  font-weight: normal;
+  color: #E04A1D;
+  padding-bottom: 30px;
 }
 
 .btn-cta.btn-inverted {
   border: 2px solid #E04A1D;
   color: #E04A1D;
+  font-size: 30px;
 }
 
+.btn-cta.btn-inverted:hover {
+  background: #5CC158;
+}
+
+.nav-header {
+  background: #F5F1F1;
+  margin-bottom: auto;
+  height: 52px;
+}
+
+#logo-nav {
+  width: 140px;
+}
+
+.nav-left {
+  width: 90%;
+}
+
+.navbar-right {
+  float:right!important;
+  margin-right:-15px;
+}
+
+.navbar-header {
+  width: 90%;
+}
+
+.nav-links {
+  font-family: 'Open Sans', sans-serif;
+}
