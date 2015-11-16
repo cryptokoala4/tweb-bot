@@ -51,8 +51,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.use(require('./controllers/tindee'));
+app.use(require('./controllers/tindees'));
 // app.use('/api/tindee', router); //namespace
 app.listen(process.env.PORT || 3000 );
-console.log('Server has Awaken...');
+console.log('i...am....ALIIIVEEEEEEeeeeeee........not.');
 

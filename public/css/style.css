@@ -108,3 +108,16 @@ body {
 .nav-links {
   font-family: 'Open Sans', sans-serif;
 }
+
+.waiting-list {
+  margin-top: 140px;
+}
+
+.pic {
+  width: 239px;
+}
+
+.signup-background {
+  background-color: #E04A1D;
+  font-family: 'Open Sans', sans-serif;
+}

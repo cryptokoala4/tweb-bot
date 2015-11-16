@@ -1,0 +1,46 @@
+<fieldset>
+  <legend>Waiting List</legend>
+  <form method="POST" action="/tindees" class="container waiting-list">
+    <div class="form-group col-md-4">
+      <input name="tindee[name]" class="form-control" placeholder="Name"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="tindee[profile_photo]"  class="form-control" placeholder="Your photo url"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="tindee[gender]"  class="form-control" placeholder="Gender"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="tindee[age]"  class="form-control" placeholder="Age"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="tindee[email]"  class="form-control" placeholder="Email"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="tindee[comment]"  class="form-control" placeholder="Comment"/>
+    </div>
+    <div class="form-group col-md-4">
+      <button class="btn btn-success col-md-12">Submit</button>
+    </div>
+  </form>
+</fieldset>
+
+<ul class="signup-background ">
+  <% tindees.forEach(function(tindee){ %>
+    <li>
+      <h2><%= tindee.name %></h2>
+      <ul>
+        <li><b>Name :         </b> <%= tindee.name %></li>
+        <li><b>Photo :        </b> <img class="pic" src="<%= tindee.profile_photo %>"</li>
+        <li><b>Gender :       </b> <%= tindee.gender %></li>
+        <li><b>Age :          </b> <%= tindee.age %></li>
+        <li><b>Email :        </b> <%= tindee.email %></li>
+        <li><b>Comment :      </b> <%= tindee.comment %></li>
+      </ul>
+      <form method="POST" action="tindees/<%= tindee._id %>?_method=DELETE">
+        <button class="btn btn-danger" type="submit">Delete Info</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+
