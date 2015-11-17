@@ -118,6 +118,23 @@ body {
 }
 
 .signup-background {
-  background-color: #E04A1D;
+  /*background-color: #E04A1D;*/
   font-family: 'Open Sans', sans-serif;
+}
+
+.profile-box {
+  margin-left: auto;
+  float: left;
+  width:  350px;
+  height: 560px;
+  margin: auto;
+  background-color: rgba(245, 245, 245, 0.4);
+  margin-top: 180px;
+}
+
+html, body {
+  background-image: url("../images/test.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
 }

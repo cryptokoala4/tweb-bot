@@ -27,11 +27,12 @@
 
 <ul class="signup-background ">
   <% tindees.forEach(function(tindee){ %>
+    <div class="well container profile-box">
     <li>
       <h2><%= tindee.name %></h2>
       <ul>
         <li><b>Name :         </b> <%= tindee.name %></li>
-        <li><b>Photo :        </b> <img class="pic" src="<%= tindee.profile_photo %>"</li>
+        <li><b>Photo :        <br></b> <img class="pic" src="<%= tindee.profile_photo %>"</li>
         <li><b>Gender :       </b> <%= tindee.gender %></li>
         <li><b>Age :          </b> <%= tindee.age %></li>
         <li><b>Email :        </b> <%= tindee.email %></li>
@@ -41,6 +42,7 @@
         <button class="btn btn-danger" type="submit">Delete Info</button>
       </form>
     </li>
+    </div>
   <% }) %>
 </ul>
 
