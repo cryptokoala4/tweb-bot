@@ -10,17 +10,21 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <header class="navbar navbar-fixed-top navbar-default">
+    <div class="navbar navbar-fixed-top navbar-default">
       <div class="container nav-left">
         <div class="navbar-header">
           <a href="/"><img id="logo-nav" src="/images/logo-nav.png"></a>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="nav-links" href="">FEATURES</a></li>
-              <li><a class="nav-links" href="">LOGIN</a></li>
+            <ul class="nav navbar-fixed-top navbar-nav navbar-right">
+                        <% if (user) { %>
+              <li><a href="/logout">LOGOUT</a></li>
+              <li><a class="nav-links" href="/tindees">FEATURES</a></li>
+            <% } else { %>
+              <li><a class="nav-links" href="/login">LOGIN</a></li>
+              <% } %>
             </ul>
         </div>
       </div>
-    </header>
+    </div>
   </head>
   <body>
       <div class="well-no-border top">

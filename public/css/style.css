@@ -98,7 +98,7 @@ body {
 
 .navbar-right {
   float:right!important;
-  margin-right:-15px;
+  margin-left: 80%;
 }
 
 .navbar-header {
@@ -138,3 +138,5 @@ html, body {
   background-size: cover;
   font-weight: bold;
 }
+
+

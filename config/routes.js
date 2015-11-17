@@ -9,24 +9,23 @@ var methodOverride = require('method-override');
 var app            = express();
 app.use(methodOverride('_method'));
 
+function authenticatedUser(req, res, next) {
+  // If the user is authenticated, then we continue the execution
+  if (req.isAuthenticated()) return next();
+  res.redirect('/');
+}
 
 router.route('/')
   .get(tindeesControllers.getHome);
 
-router.route('/tindees')
-  .get(tindeesControllers.getAll);
+router.route("/tindees")
+  .get(authenticatedUser, tindeesControllers.getAll);
 
 router.route('/tindees')
   .post(tindeesControllers.postTindee);
 
 router.route('/tindees/:id')
   .delete(tindeesControllers.deleteTindee);
-
-function authenticatedUser(req, res, next) {
-  // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
-  res.redirect('/');
-}
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -38,8 +37,5 @@ router.route('/login')
 
 router.route("/logout")
   .get(usersController.getLogout);
-
-router.route("/secret")
-  .get(authenticatedUser, usersController.secret);
 
 module.exports = router;

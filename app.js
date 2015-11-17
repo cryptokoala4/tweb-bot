@@ -8,8 +8,12 @@ var expressLayouts = require('express-ejs-layouts');
 var connect        = require('connect');
 var methodOverride = require('method-override');
 var moongoose      = require('mongoose');
-// var Restaurant     = require("./models/restaurant");
-// var District       = require("./models/district");
+var session      = require('express-session');
+var passport     = require('passport');
+var flash        = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var ejsLayouts   = require("express-ejs-layouts");
+
 
 var app            = express();
 var router         = express.Router();
@@ -27,12 +31,13 @@ app.use(expressLayouts);
 app.use(express.static(__dirname + '/public'));
 
 //sessions
-// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(flash());
+app.use(cookieParser());
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
   global.user = req.user;
@@ -43,6 +48,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').renderFile);
 app.engine('.html', require('ejs').renderFile);
+app.use(ejsLayouts);
 
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {

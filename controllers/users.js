@@ -1,4 +1,4 @@
-// var passport = require("passport");
+var passport = require("passport");
 
 // GET /signup
   function getSignup(request, response) {
