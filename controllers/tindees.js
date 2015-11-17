@@ -1,44 +1,45 @@
-var express    = require('express'),
-    router     = express.Router(),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
-
 var Tindee = require("../models/tindee");
 
 //homepage
-router.get('/', function(req, res){
-      res.render('main.html');
-    });
+function getHome(request, response) {
+  response.render('main');
+};
 
-router.get("/tindees", function(req, res){
-    Tindee.find({}, function (err, tindees) {
-      res.render('tindees/index', { tindees: tindees });
-    });
+function getAll(request, response) {
+  Tindee.find({}, function (err, tindees) {
+    response.render('index', { tindees: tindees });
   });
+};
 
-router.post("/tindees", function(req, res){
-  console.log('tindee CREATE');
-  Tindee.create(req.body.tindee, function (err, tindee) {
+function postTindee(request, response) {
+  Tindee.create(request.body.tindee, function (err, tindee) {
     if (err){
-      res.send("something wrong happened"+ err)
+      response.send("something wrong happened"+ err)
     } else {
-      res.redirect('/tindees');
+      response.redirect('/tindees');
     }
   });
-})
+}
 
-router.delete('/tindees/:id', function (req, res) {
-  console.log('hit the delete method');
-  Tindee.findById(req.params.id, function (err, tindee){
-    if (err) res.send(err)
-
+function deleteTindee(request, response) {
+  Tindee.findById(request.params.id, function (err, tindee){
+    if (err) response.send(err)
     tindee.remove(function(err){
-      if (err) res.send(err)
-
-      res.redirect('/tindees');
+      if (err) response.send(err)
+      response.redirect('/tindees');
     })
   })
-});
+};
 
 
-module.exports = router;
+
+module.exports = {
+  getHome: getHome,
+  getAll: getAll,
+  postTindee: postTindee,
+  deleteTindee: deleteTindee
+  // getSignup: getSignup,
+  // postSignup: postSignup,
+  // getLogout: getLogout,
+  // secret: secret
+};
