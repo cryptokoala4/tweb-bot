@@ -26,6 +26,18 @@ app.use(methodOverride('_method'));
 app.use(expressLayouts);
 app.use(express.static(__dirname + '/public'));
 
+//sessions
+// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(flash());
+
+// require('./config/passport')(passport);
+
+app.use(function (req, res, next) {
+  global.user = req.user;
+  next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

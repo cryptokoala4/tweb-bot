@@ -3,9 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require("passport");
-
-// var usersController = require('../controllers/users');
-// var staticsController = require('../controllers/statics');
+var usersController = require('../controllers/users');
 var tindeesControllers = require('../controllers/tindees');
 var methodOverride = require('method-override');
 var app            = express();
@@ -24,7 +22,24 @@ router.route('/tindees')
 router.route('/tindees/:id')
   .delete(tindeesControllers.deleteTindee);
 
+function authenticatedUser(req, res, next) {
+  // If the user is authenticated, then we continue the execution
+  if (req.isAuthenticated()) return next();
+  res.redirect('/');
+}
+
+router.route('/signup')
+  .get(usersController.getSignup)
+  .post(usersController.postSignup);
+
+router.route('/login')
+  .get(usersController.getLogin)
+  .post(usersController.postLogin);
+
+router.route("/logout")
+  .get(usersController.getLogout);
+
+router.route("/secret")
+  .get(authenticatedUser, usersController.secret);
 
 module.exports = router;
-
-
